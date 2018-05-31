@@ -13,6 +13,9 @@ class PostsController extends Controller
         // $posts = \App\Post::all();
         // $posts = Post::all();
         // $posts = Post::orderBy('create_at', 'desc')->get();
+        /**
+         * サーバーからデータを配列で取ってくる
+         */
         $posts = Post::latest()->get();
         // $posts = [];
         // dd($posts->toArray()); // dump die
@@ -20,8 +23,13 @@ class PostsController extends Controller
         return view('posts.index')->with('posts' , $posts);
     }
 
-    public function show($id) {
-        $post = Post::findOrFail($id);
+    // public function show($id) {
+    public function show(Post $post) {
+        // $post = Post::findOrFail($id);
+        /**
+         * viewの中のpostsフォルダのindex.~.phpにデータを渡す。
+         * $postsを’posts’とういう変数で渡す。
+         */
         return view('posts.show')->with('post', $post);
     }
 }

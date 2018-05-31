@@ -12,4 +12,9 @@
 */
 
 Route::get('/', 'PostsController@index');
-Route::get('/posts/{id}', 'PostsController@show');
+// Route::get('/posts/{id}', 'PostsController@show');
+/**　
+ * ~/posts/{post} のurlにアクセスしたとき、 index 関数を呼ぶ。
+ * {post}の値を、その変数名として関数に与える。
+ */
+Route::get('/posts/{post}', 'PostsController@show');
