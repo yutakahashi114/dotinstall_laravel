@@ -17,4 +17,5 @@ Route::get('/', 'PostsController@index');
  * ~/posts/{post} のurlにアクセスしたとき、 index 関数を呼ぶ。
  * {post}の値を、その変数名として関数に与える。
  */
-Route::get('/posts/{post}', 'PostsController@show');
+Route::get('/posts/{post}', 'PostsController@show')->where('post', '[0-9]+');
+Route::get('/posts/create', 'PostsController@create');
