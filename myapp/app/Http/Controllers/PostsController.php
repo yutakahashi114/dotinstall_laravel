@@ -38,6 +38,15 @@ class PostsController extends Controller
     }
 
     public function store(Request $request) {
+        /**
+         * エラー判定
+         * エラーがあれば自動で前の画面に戻す。
+         * その際エラーログを持っていく。
+         */
+        $this->validate($request, [
+            'title' => 'required | min:3',
+            'body' => 'required'
+        ]);
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
