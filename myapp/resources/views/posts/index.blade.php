@@ -16,7 +16,10 @@ Blog Posts
         <!--
             PostsController@showに対応するurl (web.phpで指定したやつ?) を生成する
         -->
-        <li><a href="{{ action('PostsController@show', $post) }}">{{ $post -> title }}</a></li>
+        <li>
+            <a href="{{ action('PostsController@show', $post) }}">{{ $post -> title }}</a>
+            <a href="{{ action('PostsController@edit', $post) }}" class="edit">[edit]</a>
+        </li>
         @empty
         <li>No posts yet</li>
         @endforelse
